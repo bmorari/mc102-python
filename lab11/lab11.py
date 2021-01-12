@@ -8,16 +8,22 @@
 def verifica_jogo(lista_ref, tabuleiro, altura_tabuleiro, largura_tabuleiro, peca, altura_peca, largura_peca):
   for i in range(altura_tabuleiro):
     for j in range(largura_tabuleiro):
+
       if(tabuleiro[i][j]== "."):
+        
         for n in range(len(lista_ref)):
           if(0 > i+lista_ref[n][0] or i+lista_ref[n][0] >= altura_tabuleiro or 0 > j+lista_ref[n][1] or j+lista_ref[n][1] >= largura_tabuleiro or tabuleiro[i+lista_ref[n][0]][j+lista_ref[n][1]] != "."):
             break
+
           if(n == len(lista_ref) -1):
+
             for v in range(len(lista_ref)):
               tabuleiro[i+lista_ref[v][0]][j+lista_ref[v][1]] = "#"
             status_do_jogo = "O jogo deve continuar"
             return tabuleiro, status_do_jogo
+
   status_do_jogo = "Fim de jogo"
+
   return tabuleiro, status_do_jogo
 
 def maior(velha, ponto):
